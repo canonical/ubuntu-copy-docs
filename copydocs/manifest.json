@@ -1,13 +1,21 @@
 {
   "manifest_version": 2,
   "name": "Ubuntu Copy Docs",
-  "version": "1.0",
+  "version": "1.1",
 
   "description": "Shows a link to a copy doc on Ubuntu websites",
 
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": [
+        "*://*.ubuntu.com/*",
+        "*://*.canonical.com/*",
+        "*://*.snapcraft.io/*",
+        "*://*.maas.io/*",
+
+        "*://*.run.demo.haus/*",
+        "*://localhost/*"
+      ],
       "js": ["copydocs.js"]
     }
   ]
