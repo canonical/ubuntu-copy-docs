@@ -8,8 +8,15 @@
 
   if (copyDoc) {
     var editStrip = document.createElement('div');
-    editStrip.innerHTML = 'Propose changes to this page in the ' +
-      '<a class="p-link--external" href="' + copyDoc + '" target="_blank">copy document</a>';
+
+    var link = document.createElement('a');
+    link.className = "p-link--external";
+    link.href = copyDoc;
+    link.target = "_blank";
+    link.appendChild(document.createTextNode('copy document'));
+
+    editStrip.appendChild(document.createTextNode('Propose changes to this page in the '));
+    editStrip.appendChild(link);
 
     editStrip.style.background = '#fad542';
     editStrip.style.margin = '0';
