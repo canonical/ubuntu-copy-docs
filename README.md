@@ -1,5 +1,8 @@
-# ubuntu-copy-docs
-Copy docs widget for Ubuntu websites.
+# Ubuntu Copy Docs
+
+Browser extension that adds a link to copy docs to Ubuntu and Canonical websites.
+
+![extenstion in action on ubuntu.com](https://raw.githubusercontent.com/canonical-webteam/ubuntu-copy-docs/master/assets/copydocs-screenshot.png)
 
 ## Install
 
