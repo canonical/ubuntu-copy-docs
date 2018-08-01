@@ -5,10 +5,8 @@ Copy docs widget for Ubuntu websites
 
 ### Firefox
 
-Download the [copydocs-1.0.xpi](https://github.com/bartaz/ubuntu-copy-docs/raw/master/copydocs-1.1.xpi) add-on file, open it with Firefox, accept installation.
-To make sure it was installed correctly you can go to [about:addons](about:addons).
+Get [Ubuntu Copy Docs](https://addons.mozilla.org/en-US/firefox/addon/ubuntu-copy-docs/) from Firefox Add-ons.
 
 ### Chrome
 
-Download the [copydocs-1.0.crx](https://github.com/bartaz/ubuntu-copy-docs/raw/master/copydocs-1.1.crx) extension file.
-In Chrome go to [chrome://extensions/](chrome://extensions/), enable Developer mode. Now you should be able to drag and drop the extension file to this page to install it.
+Get [Ubuntu Copy Docs](https://chrome.google.com/webstore/detail/ubuntu-copy-docs/cmljegnknolilmjdconnapgllmefigfl?hl=en-US) from Chrome Web Store.
