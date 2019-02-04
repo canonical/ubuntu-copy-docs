@@ -19,7 +19,7 @@
         "*://*.canonical.com/*",
         "*://*.snapcraft.io/*",
         "*://*.maas.io/*",
-
+        "*://*.vanillaframework.io/*",
         "*://*.run.demo.haus/*",
         "*://localhost/*"
       ],
