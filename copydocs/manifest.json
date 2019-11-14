@@ -19,6 +19,8 @@
         "*://*.snapcraft.io/*",
         "*://*.ubuntu.com/*",
         "*://*.maas.io/*",
+        "*://*.cloud-init.io/*",
+        "*://*.netplan.io/*",
         "*://*.mir-server.io/*",
         "*://*.vanillaframework.io/*",
         "*://*.run.demo.haus/*",
