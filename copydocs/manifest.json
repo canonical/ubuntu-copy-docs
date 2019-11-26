@@ -18,6 +18,7 @@
         "*://*.canonical.com/*",
         "*://*.snapcraft.io/*",
         "*://*.ubuntu.com/*",
+        "*://*.jaas.ai/*",
         "*://*.maas.io/*",
         "*://*.mir-server.io/*",
         "*://*.vanillaframework.io/*",
