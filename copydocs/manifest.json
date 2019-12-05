@@ -16,14 +16,15 @@
     {
       "matches": [
         "*://*.canonical.com/*",
-        "*://*.snapcraft.io/*",
-        "*://*.ubuntu.com/*",
+        "*://*.cloud-init.io/*",
         "*://*.jaas.ai/*",
         "*://*.maas.io/*",
-        "*://*.cloud-init.io/*",
-        "*://*.netplan.io/*",
         "*://*.mir-server.io/*",
+        "*://*.netplan.io/*",
+        "*://*.ubuntu.com/*",
+        "*://*.snapcraft.io/*",
         "*://*.vanillaframework.io/*",
+
         "*://*.run.demo.haus/*",
         "*://localhost/*"
       ],
@@ -31,5 +32,4 @@
       "js": ["copydocs.js"]
     }
   ]
-
 }
