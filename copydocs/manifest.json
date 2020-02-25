@@ -15,14 +15,24 @@
   "content_scripts": [
     {
       "matches": [
+        "*://*.anbox-cloud.io/*",
         "*://*.canonical.com/*",
+        "*://*.charmed-osm.com/*",
         "*://*.cloud-init.io/*",
+        "*://*.conjure-up.io/*",
+        "*://*.dqlite.io/*",
+        "*://*.etclite.io/*",
         "*://*.jaas.ai/*",
+        "*://*.juju.is/*",
+        "*://*.kubeflow-news.com/*",
         "*://*.maas.io/*",
+        "*://*.microk8s.io/*",
+        "*://*.microstack.run/*",
         "*://*.mir-server.io/*",
+        "*://*.multipass.run/*",
         "*://*.netplan.io/*",
-        "*://*.ubuntu.com/*",
         "*://*.snapcraft.io/*",
+        "*://*.ubuntu.com/*",
         "*://*.vanillaframework.io/*",
 
         "*://*.run.demo.haus/*",
