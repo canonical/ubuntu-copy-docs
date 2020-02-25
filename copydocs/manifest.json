@@ -3,13 +3,14 @@
   "name": "Ubuntu Copy Docs",
   "short_name": "CopyDocs",
 
-  "version": "1.2.3",
+  "version": "1.2.4",
   "homepage_url": "https://github.com/canonical-webteam/ubuntu-copy-docs",
 
   "description": "Shows a link to a copy doc on Ubuntu and Canonical websites.",
 
   "icons": {
-    "256": "icon.png"
+    "128": "icon128.png",
+    "256": "icon256.png"
   },
 
   "content_scripts": [
