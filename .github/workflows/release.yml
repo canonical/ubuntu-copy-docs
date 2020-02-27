@@ -1,0 +1,83 @@
+name: Build and release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v2
+
+     # Fetch all history and tags
+     - name: Fetch history
+       run: git fetch --prune --unshallow
+
+     # Get last released version (from tag name) and save it to $RELEASED_VERSION
+     - name: Get version of last tagged release
+       run: |
+         RELEASED_VERSION=$(git describe --tags --abbrev=0 | sed s/^v//)
+         echo $RELEASED_VERSION
+         echo "::set-env name=RELEASED_VERSION::$RELEASED_VERSION"
+
+     # Get last current version (from manifest.json) and save it to $MANIFEST_VERSION
+     - name: Read version from manifest.json
+       id: manifest
+       run: |
+         MANIFEST_VERSION=$(node -p "require('./copydocs/manifest.json').version")
+         echo $MANIFEST_VERSION
+         echo "::set-env name=MANIFEST_VERSION::$MANIFEST_VERSION"
+
+     # Compare $RELEASED_VERSION and $MANIFEST_VERSION, if different save $NEW_VERSION to release
+     - name: Check new version to release
+       if: env.RELEASED_VERSION != env.MANIFEST_VERSION
+       run: echo "::set-env name=NEW_VERSION::${{ env.MANIFEST_VERSION }}"
+     
+     # If there is new version to release
+     # ====================================
+       
+     # List commits since last release and generate changelog from them    
+     - if: env.NEW_VERSION
+       name: Generate changelog from git log
+       id: changes
+       run: |
+         git log  --format="- %s" v${{ steps.released.outputs.version }}..HEAD | tee CHANGELOG
+         CHANGELOG="$(< CHANGELOG)"
+         CHANGELOG="${CHANGELOG//'%'/'%25'}"
+         CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
+         CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
+         echo "::set-output name=log::$CHANGELOG"
+     
+     # Build zip package to release
+     - if: env.NEW_VERSION
+       name: Build zip package
+       run: zip -j -r copydocs-${{ env.NEW_VERSION }}.zip copydocs
+     
+     # Create release in GitHub
+     - if: env.NEW_VERSION
+       name: Create new release
+       id: create_release
+       uses: actions/create-release@v1
+       env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       with:
+         tag_name: v${{ env.NEW_VERSION }}
+         release_name: Release v${{ env.NEW_VERSION }}
+         body: |
+           ### New in v${{ env.NEW_VERSION }}
+           
+           ${{ steps.changes.outputs.log }}
+
+     # Upload zip package to the release
+     - if: env.NEW_VERSION
+       name: Upload zip package to the release
+       uses: actions/upload-release-asset@v1
+       env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./copydocs-${{ env.NEW_VERSION }}.zip
+          asset_name: copydocs-${{ env.NEW_VERSION }}.zip
+          asset_content_type: application/zip
