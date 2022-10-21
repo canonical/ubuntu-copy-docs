@@ -37,7 +37,8 @@
         "*://*.vanillaframework.io/*",
 
         "*://*.run.demo.haus/*",
-        "*://localhost/*"
+        "*://localhost/*",
+        "*://*.charmed-kubeflow.io/*"
       ],
       "css": ["copydocs.css"],
       "js": ["copydocs.js"]
