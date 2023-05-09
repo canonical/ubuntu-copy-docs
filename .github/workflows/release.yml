@@ -20,7 +20,7 @@ jobs:
        run: |
          RELEASED_VERSION=$(git describe --tags --abbrev=0 | sed s/^v//)
          echo $RELEASED_VERSION
-         echo "::set-env name=RELEASED_VERSION::$RELEASED_VERSION"
+         echo "RELEASED_VERSION=$RELEASED_VERSION" >> "$GITHUB_ENV"
 
      # Get last current version (from manifest.json) and save it to $MANIFEST_VERSION
      - name: Read version from manifest.json
@@ -28,12 +28,12 @@ jobs:
        run: |
          MANIFEST_VERSION=$(node -p "require('./copydocs/manifest.json').version")
          echo $MANIFEST_VERSION
-         echo "::set-env name=MANIFEST_VERSION::$MANIFEST_VERSION"
+         echo "MANIFEST_VERSION=$MANIFEST_VERSION" >> "$GITHUB_ENV"
 
      # Compare $RELEASED_VERSION and $MANIFEST_VERSION, if different save $NEW_VERSION to release
      - name: Check new version to release
        if: env.RELEASED_VERSION != env.MANIFEST_VERSION
-       run: echo "::set-env name=NEW_VERSION::${{ env.MANIFEST_VERSION }}"
+       run: echo "NEW_VERSION=${{ env.MANIFEST_VERSION }}" >> "$GITHUB_ENV"
      
      # If there is new version to release
      # ====================================
@@ -48,7 +48,7 @@ jobs:
          CHANGELOG="${CHANGELOG//'%'/'%25'}"
          CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
          CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
-         echo "::set-output name=log::$CHANGELOG"
+         echo "log=$CHANGELOG" >> "$GITHUB_OUTPUT"
      
      # Build zip package to release
      - if: env.NEW_VERSION
