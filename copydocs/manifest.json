@@ -3,7 +3,7 @@
   "name": "Ubuntu Copy Docs",
   "short_name": "CopyDocs",
 
-  "version": "1.2.5",
+  "version": "1.2.6",
   "homepage_url": "https://github.com/canonical-webteam/ubuntu-copy-docs",
 
   "description": "Shows a link to a copy doc on Ubuntu and Canonical websites.",
@@ -28,6 +28,7 @@
         "*://*.juju.is/*",
         "*://*.kubeflow-news.com/*",
         "*://*.maas.io/*",
+        "*://*.microcloud.is/*",
         "*://*.microk8s.io/*",
         "*://*.microstack.run/*",
         "*://*.mir-server.io/*",
