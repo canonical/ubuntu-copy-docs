@@ -8,7 +8,7 @@
 
   if (copyDoc) {
     var editStrip = document.createElement('div');
-    editStrip.className = 'copy-docs-widget';
+    editStrip.className = 'copy-docs-widget is-light';
 
     var link = document.createElement('a');
     Object.assign(link, {
