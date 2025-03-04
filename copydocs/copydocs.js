@@ -1,8 +1,22 @@
-(function(){
+
+(async function(){
+  var projects = []
+  const response = await fetch("https://raw.githubusercontent.com/canonical/cs.canonical.com/main/sites.yaml")
+  if(response.ok){
+    const yamlStr = await response.text()
+    projects = yamlStr
+      .split("\n")
+      .filter((line) => line.trim() && !line.startsWith("sites:"))
+      .map((line) => line.trim().replace(/^\- /, ""))
+      .filter((line) => line);
+  }
+
   var copyDocMeta = document.querySelector('meta[name="copydoc"]');
   var copyDoc;
 
-  if (copyDocMeta) {
+  if (projects.includes(window.location.hostname)) {
+    copyDoc = `https://cs.canonical.com/app/webpage/${window.location.hostname}${window.location.pathname}`
+  } else if (copyDocMeta) {
     copyDoc = copyDocMeta.getAttribute('content');
   }
 

@@ -1,8 +1,8 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 4,
   "name": "Ubuntu Copy Docs",
   "short_name": "CopyDocs",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "homepage_url": "https://github.com/canonical/ubuntu-copy-docs",
   "description": "Shows a link to a copy doc on Ubuntu and Canonical websites.",
   "icons": {
