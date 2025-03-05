@@ -30,7 +30,7 @@
       href: copyDoc,
       target: "_blank"
     });
-    link.appendChild(document.createTextNode('copy document'));
+    link.appendChild(document.createTextNode(`${projects.includes(window.location.hostname) ? 'Content System' : 'copy document'}`));
 
     editStrip.appendChild(document.createTextNode('Propose changes to this page in the '));
     editStrip.appendChild(link);
