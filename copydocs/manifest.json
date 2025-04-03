@@ -4,7 +4,7 @@
   "short_name": "CopyDocs",
   "version": "1.4.0",
   "homepage_url": "https://github.com/canonical/ubuntu-copy-docs",
-  "description": "This extension facilitates seamless integration by providing direct links to webpage details for canonical websites within the content system. For websites not yet available in the content system, it displays a link to the corresponding copy document, ensuring quick access.",
+  "description": "This extension facilitates seamless integration by providing direct links to webpage details for Canonical websites within the content system. For websites not yet available in the content system, it displays a link to the corresponding copy document, ensuring quick access.",
   "icons": {
     "128": "icon128.png",
     "256": "icon256.png"
