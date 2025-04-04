@@ -1,7 +1,7 @@
 (async function () {
   var projects = [];
   const response = await fetch(
-    "https://raw.githubusercontent.com/canonical/cs.canonical.com/main/sites.yaml"
+    "https://raw.githubusercontent.com/canonical/cs.canonical.com/main/data/sites.yaml"
   );
   if (response.ok) {
     const yamlStr = await response.text();
